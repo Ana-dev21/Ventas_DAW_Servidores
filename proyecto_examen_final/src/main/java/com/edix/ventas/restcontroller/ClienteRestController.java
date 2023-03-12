@@ -17,7 +17,6 @@ public class ClienteRestController {
 	@Autowired
 	ClienteService cliService;
 	
-	@Autowired
 	
 	@GetMapping("/todos")
 	public List<Cliente> verTodos(){
