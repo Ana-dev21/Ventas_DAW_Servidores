@@ -8,7 +8,7 @@
 		<version>2.6.13</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.edix.proyecto_examen_final</groupId>
+	<groupId>com.edix.ventas</groupId>
 	<artifactId>proyecto_examen_final</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>proyecto_examen_final</name>
@@ -20,10 +20,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -45,13 +41,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-       
+        </dependency>  
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -62,35 +52,11 @@
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
         </dependency>
-        		<dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version><!--$NO-MVN-MAN-VER$-->
-	 	</dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-taglibs</artifactId>
-            <version>5.4.5</version><!--$NO-MVN-MAN-VER$ -->
-        </dependency>
-        <!-- swagger dependencies -->
-			<dependency>
-			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-swagger2</artifactId>
-			    <version>3.0.0</version>
-			</dependency>
-			
-			<dependency>
-			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-swagger-ui</artifactId>
-			    <version>3.0.0</version>
-			</dependency>
-			
-			<dependency>
-			    <groupId>io.springfox</groupId>
-			    <artifactId>springfox-boot-starter</artifactId>
-			    <version>3.0.0</version>
-			</dependency>
+		<dependency>
+			  <groupId>io.springfox</groupId>
+			   <artifactId>springfox-boot-starter</artifactId>
+			   <version>3.0.0</version>
+		</dependency>
     </dependencies>
 	<build>
 		<plugins>

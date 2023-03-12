@@ -1,4 +1,4 @@
-package com.edix.proyecto_examen_final;
+package com.edix.ventas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
