@@ -34,6 +34,8 @@ public class ClienteServiceImpl implements ClienteService{
 		return cliRepo.ClientesPorCiudad(ciudad);
 	}
 
+
+
 	
 
 }
