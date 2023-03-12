@@ -2,6 +2,7 @@ package com.edix.ventas.beans;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -10,8 +11,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="comerciales")
-@NamedQuery(name="Comerciale.findAll", query="SELECT c FROM Comerciale c")
-public class Comerciale implements Serializable {
+@NamedQuery(name="Comercial.findAll", query="SELECT c FROM Comercial c")
+public class Comercial implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -27,7 +28,11 @@ public class Comerciale implements Serializable {
 
 	private String nombre;
 
-	public Comerciale() {
+	//bi-directional many-to-one association to Pedido
+	@OneToMany(mappedBy="comerciale")
+	private List<Pedido> pedidos;
+
+	public Comercial() {
 	}
 
 	public int getIdComercial() {
@@ -68,6 +73,28 @@ public class Comerciale implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public List<Pedido> getPedidos() {
+		return this.pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	public Pedido addPedido(Pedido pedido) {
+		getPedidos().add(pedido);
+		pedido.setComerciale(this);
+
+		return pedido;
+	}
+
+	public Pedido removePedido(Pedido pedido) {
+		getPedidos().remove(pedido);
+		pedido.setComerciale(null);
+
+		return pedido;
 	}
 
 }

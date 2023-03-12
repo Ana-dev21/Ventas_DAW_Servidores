@@ -1,9 +1,8 @@
 package com.edix.ventas.beans;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -21,25 +20,20 @@ public class Cliente implements Serializable {
 	@Column(name="id_cliente")
 	private int idCliente;
 
-	@Column(name = "nombre")
-	private String nombre;
-	
-	@Column(name = "apellido1")
 	private String apellido1;
 
-	@Column(name = "apellido2")
 	private String apellido2;
-	
-	@Column(name = "categoria")
+
 	private int categoria;
 
-	@Column(name = "ciudad")
 	private String ciudad;
 
-	//Opcional - Lista de pedidos del cliente, en el mismo objeto Cliente
-	@OneToMany(mappedBy = "cliente")
+	private String nombre;
+
+	//bi-directional many-to-one association to Pedido
+	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos;
-	
+
 	public Cliente() {
 	}
 
@@ -89,6 +83,28 @@ public class Cliente implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public List<Pedido> getPedidos() {
+		return this.pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	public Pedido addPedido(Pedido pedido) {
+		getPedidos().add(pedido);
+		pedido.setCliente(this);
+
+		return pedido;
+	}
+
+	public Pedido removePedido(Pedido pedido) {
+		getPedidos().remove(pedido);
+		pedido.setCliente(null);
+
+		return pedido;
 	}
 
 }

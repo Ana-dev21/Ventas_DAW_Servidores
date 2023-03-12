@@ -25,15 +25,15 @@ public class Pedido implements Serializable {
 
 	private double total;
 
-	//uni-directional many-to-one association to Cliente
+	//bi-directional many-to-one association to Cliente
 	@ManyToOne
 	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 
-	//uni-directional many-to-one association to Comerciale
+	//bi-directional many-to-one association to Comercial
 	@ManyToOne
 	@JoinColumn(name="id_comercial")
-	private Comerciale comerciale;
+	private Comercial comerciale;
 
 	public Pedido() {
 	}
@@ -70,11 +70,11 @@ public class Pedido implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public Comerciale getComerciale() {
+	public Comercial getComerciale() {
 		return this.comerciale;
 	}
 
-	public void setComerciale(Comerciale comerciale) {
+	public void setComerciale(Comercial comerciale) {
 		this.comerciale = comerciale;
 	}
 
