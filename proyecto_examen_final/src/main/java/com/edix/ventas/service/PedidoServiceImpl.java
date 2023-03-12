@@ -38,8 +38,28 @@ public class PedidoServiceImpl implements PedidoService{
      * @return List<Pedido>
      */
     @Override
-    public List<Pedido> pedidosPorCliente(int idCliente) {
+    public List<Pedido> buscarPorCliente(int idCliente) {
         return pRepo.findByCliente(idCliente);
+    }
+
+    /**
+     * Función que devuelve todos los pedidos realizados en una fecha específica
+     * @param fecha
+     * @return List<Pedido>
+     */
+    @Override
+    public List<Pedido> pedidosPorFecha(String fecha) {
+        return pRepo.findByFecha(fecha);
+    }
+
+    /**
+     * Función que devuelve todos los pedidos realizados por un comercial
+     * @param idComercial
+     * @return List<Pedido>
+     */
+    @Override
+    public List<Pedido> pedidosPorComercial(int idComercial) {
+        return pRepo.findByComercial(idComercial);
     }
 
 }

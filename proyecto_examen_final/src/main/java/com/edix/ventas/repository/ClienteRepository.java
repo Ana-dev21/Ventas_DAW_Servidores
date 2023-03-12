@@ -13,5 +13,5 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	 * Obtener todos los clientes de una ciudad especifica
 	 */
 	@Query("SELECT c FROM Cliente c WHERE c.ciudad = :ciudad")
-	List<Cliente> ClientesPorCiudad(String ciudad);
+	List<Cliente> findByCiudad(String ciudad);
 }

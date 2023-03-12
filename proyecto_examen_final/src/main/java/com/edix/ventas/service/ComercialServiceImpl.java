@@ -1,6 +1,7 @@
 package com.edix.ventas.service;
 
 import com.edix.ventas.beans.Comercial;
+import com.edix.ventas.beans.Pedido;
 import com.edix.ventas.repository.ComercialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,7 @@ public class ComercialServiceImpl implements ComercialService{
     public double totalVentasPorComercial(int idComercial) {
         return cRepo.totalVentasPorComercial(idComercial);
     }
+
 
 
 

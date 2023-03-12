@@ -2,15 +2,15 @@
          pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title></title>
    </head>
 <body>
     <h1>Bienvenido</h1>
-    <a href="/comerciales/todos">Comerciales</a>
-    <a href="/clientes">Clientes</a>
-    <a href="/pedidos">Pedidos</a>
+    <a href="/comerciales/verTodos">Comerciales</a>
+    <a href="/clientes/verTodos">Clientes</a>
+    <a href="/pedidos/verTodos">Pedidos</a>
 </body>
 

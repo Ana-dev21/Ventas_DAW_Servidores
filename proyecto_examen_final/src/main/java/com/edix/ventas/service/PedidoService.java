@@ -9,5 +9,9 @@ public interface PedidoService {
 
     Pedido buscarPorId(int idPedido);
 
-    List<Pedido> pedidosPorCliente(int idCliente);
+    List<Pedido> buscarPorCliente(int idCliente);
+
+    List<Pedido> pedidosPorFecha(String fecha);
+
+    abstract List<Pedido> pedidosPorComercial(int idComercial);
 }

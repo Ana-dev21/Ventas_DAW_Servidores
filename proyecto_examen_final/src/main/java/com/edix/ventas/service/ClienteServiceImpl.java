@@ -12,7 +12,7 @@ import com.edix.ventas.repository.ClienteRepository;
 public class ClienteServiceImpl implements ClienteService{
 
 	@Autowired
-	ClienteRepository cliRepo;
+	ClienteRepository cRep;
 	
 	/**
 	 * Ver todos los clientes
@@ -20,18 +20,18 @@ public class ClienteServiceImpl implements ClienteService{
 	@Override
 	public List<Cliente> verTodos() {
 		
-		return cliRepo.findAll();
+		return cRep.findAll();
 	}
 	
 	/**
 	 * Ver los clientes de la ciudad pasada por parámetro
 	 */
 	@Override
-	public List<Cliente> ClientesPorCiudad(String ciudad) {
+	public List<Cliente> buscarPorCiudad(String ciudad) {
 		
 		//TODO Verificar que la ciudad pasada por parámetro existe
 		
-		return cliRepo.ClientesPorCiudad(ciudad);
+		return cRep.findByCiudad(ciudad);
 	}
 
 

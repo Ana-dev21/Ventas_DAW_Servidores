@@ -14,6 +14,7 @@
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Comisión</th>
+            <th>Opciones</th>
         </tr>
         <c:forEach items="${comerciales}" var="comercial">
             <tr>
@@ -21,8 +22,10 @@
                 <td>${comercial.apellido1} ${comercial.apellido2}</td>
                 <td>${comercial.comision}</td>
                 <td>
-                    <a href="comerciales/editar/${comercial.idComercial}">Editar</a>
-                    <a href="comerciales/eliminar/${comercial.idComercial}">Eliminar</a>
+                    <a href="detalle/${comercial.idComercial}">Detalle</a>
+                    <a href="editar/${comercial.idComercial}">Editar</a>
+                    <a href="eliminar/${comercial.idComercial}">Eliminar</a>
+
                 </td>
             </tr>
         </c:forEach>

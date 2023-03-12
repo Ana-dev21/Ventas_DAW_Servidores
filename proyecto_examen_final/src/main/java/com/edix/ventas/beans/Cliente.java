@@ -24,7 +24,7 @@ public class Cliente implements Serializable {
 
 	private String apellido2;
 
-	private int categoria;
+	private Integer categoria;
 
 	private String ciudad;
 
@@ -61,11 +61,11 @@ public class Cliente implements Serializable {
 		this.apellido2 = apellido2;
 	}
 
-	public int getCategoria() {
+	public Integer getCategoria() {
 		return this.categoria;
 	}
 
-	public void setCategoria(int categoria) {
+	public void setCategoria(Integer categoria) {
 		this.categoria = categoria;
 	}
 

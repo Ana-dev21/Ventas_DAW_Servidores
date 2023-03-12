@@ -33,7 +33,7 @@ public class Pedido implements Serializable {
 	//bi-directional many-to-one association to Comercial
 	@ManyToOne
 	@JoinColumn(name="id_comercial")
-	private Comercial comerciale;
+	private Comercial comercial;
 
 	public Pedido() {
 	}
@@ -70,12 +70,12 @@ public class Pedido implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public Comercial getComerciale() {
-		return this.comerciale;
+	public Comercial getComercial() {
+		return this.comercial;
 	}
 
-	public void setComerciale(Comercial comerciale) {
-		this.comerciale = comerciale;
+	public void setComercial(Comercial comercial) {
+		this.comercial = comercial;
 	}
 
 }
