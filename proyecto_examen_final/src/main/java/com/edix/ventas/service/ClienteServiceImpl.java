@@ -15,7 +15,7 @@ public class ClienteServiceImpl implements ClienteService{
 	ClienteRepository cRep;
 	/**
 	 * Función que busca un cliente por su id
-	 * @param idCliente
+	 * @param idCliente ID del cliente a buscar
 	 * @return Cliente
 	 */
 	@Override
@@ -44,11 +44,25 @@ public class ClienteServiceImpl implements ClienteService{
 		return cRep.findByCiudad(ciudad);
 	}
 
+	/**
+	 * Ver los clientes de la provincia pasada por parámetro
+	 * @param categoria 100, 200, 300
+	 * @return List<Cliente>
+	 */
 	@Override
 	public List<Cliente> buscarPorCategoria(Integer categoria) {
 		return cRep.findByCategoria(categoria);
 	}
 
+	/**
+	 * Funcion que devuelve los nombres de los clientes que tienen un pedido con un importe mayor al pasado por parámetro
+	 * @param importe Importe mínimo a buscar
+	 * @return List<String>
+	 */
+	@Override
+	public List<String> buscarPorImportePedido(double importe) {
+		return cRep.findByImporte(importe);
+	}
 
 	
 

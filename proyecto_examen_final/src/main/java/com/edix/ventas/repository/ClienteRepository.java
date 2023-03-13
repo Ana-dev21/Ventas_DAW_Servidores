@@ -17,4 +17,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 
 	@Query("SELECT c FROM Cliente c WHERE c.categoria = :categoria")
 	List<Cliente> findByCategoria(Integer categoria);
+
+	@Query("SELECT DISTINCT c.nombre FROM Cliente c JOIN Pedido p ON c.idCliente = p.cliente.idCliente WHERE p.total > :importe")
+	List<String> findByImporte(Double importe);
 }

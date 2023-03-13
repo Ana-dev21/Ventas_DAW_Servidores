@@ -14,4 +14,6 @@ public interface ClienteService {
     List<Cliente> buscarPorCiudad(String ciudad);
 
     List<Cliente> buscarPorCategoria(Integer categoria);
+
+    List<String> buscarPorImportePedido(double importe);
 }

@@ -42,4 +42,13 @@ public class ClienteRestController {
 		return ResponseEntity.status(404).body("No existe la categoría");
 	}
 
+	@GetMapping("/verPorComprasMayorQue/{compras}")
+	public ResponseEntity<?> verPorComprasMayorQue(@PathVariable("compras") double compras) {
+		if (clServ.buscarPorImportePedido(compras) != null) {
+			return ResponseEntity.status(302).body(clServ.buscarPorImportePedido(compras));
+		}
+		return ResponseEntity.status(404).body("No existe la cantidad de compras");
+	}
+
+
 }

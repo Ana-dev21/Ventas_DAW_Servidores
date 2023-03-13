@@ -32,7 +32,7 @@ public class ComercialRestController {
     }
 
     @GetMapping("verPorComision/{comision}")
-    public ResponseEntity<?> verPorComision(double comision) {
+    public ResponseEntity<?> verPorComision(@PathVariable double comision) {
         if (cServ.buscarPorComisionMayor(comision) != null) {
             return ResponseEntity.status(302).body(cServ.buscarPorComisionMayor(comision));
         }
