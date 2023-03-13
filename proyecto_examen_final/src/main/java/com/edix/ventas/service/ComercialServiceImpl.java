@@ -1,10 +1,10 @@
 package com.edix.ventas.service;
 
 import com.edix.ventas.beans.Comercial;
-import com.edix.ventas.beans.Pedido;
 import com.edix.ventas.repository.ComercialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
@@ -25,17 +25,17 @@ public class ComercialServiceImpl implements ComercialService{
 
     /**
      * Función que devuelve un comercial por su id
-     * @param idComercial
+     * @param idComercial ID del comercial a buscar
      * @return Comercial
      */
     @Override
     public Comercial buscarPorId(int idComercial) {
-        return cRepo.findById(idComercial).get();
+        return cRepo.findById(idComercial).orElse(null);
     }
 
     /**
      * Función que devuelve un comercial por su nombre
-     * @param nombre
+     * @param nombre Nombre del comercial a buscar
      * @return Comercial
      */
     @Override
@@ -45,7 +45,7 @@ public class ComercialServiceImpl implements ComercialService{
 
     /**
      * Función que devuelve el total de las ventas por comercial
-     * @param idComercial
+     * @param idComercial ID del comercial a buscar
      * @return double
      */
     @Override
@@ -54,6 +54,15 @@ public class ComercialServiceImpl implements ComercialService{
     }
 
 
+    /**
+     * Función que devuelve todos los comerciales que tienen una comisión mayor a la pasada por parámetro
+     * @param comision Comisión mínima a buscar
+     * @return List<Comercial>
+     */
+    @Override
+    public List<Comercial> buscarPorComisionMayor(double comision) {
 
+        return cRepo.findByComisionGreaterThan(comision);
+    }
 
 }

@@ -1,5 +1,7 @@
 package com.edix.ventas.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
@@ -31,7 +33,8 @@ public class Cliente implements Serializable {
 	private String nombre;
 
 	//bi-directional many-to-one association to Pedido
-	@OneToMany(mappedBy="cliente")
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy="cliente")
 	private List<Pedido> pedidos;
 
 	public Cliente() {

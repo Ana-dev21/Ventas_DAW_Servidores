@@ -13,4 +13,6 @@ public interface ComercialService {
     Comercial buscarPorNombre(String nombre);
 
     double totalVentasPorComercial(int idComercial);
+
+    List<Comercial> buscarPorComisionMayor(double comision);
 }

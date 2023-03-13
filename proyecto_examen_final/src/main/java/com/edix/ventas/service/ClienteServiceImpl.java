@@ -13,7 +13,17 @@ public class ClienteServiceImpl implements ClienteService{
 
 	@Autowired
 	ClienteRepository cRep;
-	
+	/**
+	 * Función que busca un cliente por su id
+	 * @param idCliente
+	 * @return Cliente
+	 */
+	@Override
+	public Cliente buscarPorId(int idCliente) {
+
+		return cRep.findById(idCliente).orElse(null);
+	}
+
 	/**
 	 * Ver todos los clientes
 	 */
@@ -34,6 +44,10 @@ public class ClienteServiceImpl implements ClienteService{
 		return cRep.findByCiudad(ciudad);
 	}
 
+	@Override
+	public List<Cliente> buscarPorCategoria(Integer categoria) {
+		return cRep.findByCategoria(categoria);
+	}
 
 
 	

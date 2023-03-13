@@ -1,8 +1,12 @@
 package com.edix.ventas.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.io.Serial;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -13,6 +17,7 @@ import java.util.List;
 @Table(name="comerciales")
 @NamedQuery(name="Comercial.findAll", query="SELECT c FROM Comercial c")
 public class Comercial implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,12 +29,13 @@ public class Comercial implements Serializable {
 
 	private String apellido2;
 
-	private double comision;
+	private Double comision;
 
 	private String nombre;
 
 	//bi-directional many-to-one association to Pedido
-	@OneToMany(mappedBy= "comercial")
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy="comercial")
 	private List<Pedido> pedidos;
 
 	public Comercial() {
@@ -59,11 +65,11 @@ public class Comercial implements Serializable {
 		this.apellido2 = apellido2;
 	}
 
-	public double getComision() {
+	public Double getComision() {
 		return this.comision;
 	}
 
-	public void setComision(double comision) {
+	public void setComision(Double comision) {
 		this.comision = comision;
 	}
 
@@ -96,5 +102,27 @@ public class Comercial implements Serializable {
 
 		return pedido;
 	}
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Comercial comercial = (Comercial) o;
+		return idComercial == comercial.idComercial;
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(idComercial);
+	}
+
+	@Override
+	public String toString() {
+		return "Comercial{" +
+				"idComercial=" + idComercial +
+				", apellido1='" + apellido1 + '\'' +
+				", apellido2='" + apellido2 + '\'' +
+				", comision=" + comision +
+				", nombre='" + nombre + '\'' +
+				'}';
+	}
 }
