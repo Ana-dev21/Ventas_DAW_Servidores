@@ -17,19 +17,30 @@ public class PedidoServiceImpl implements PedidoService {
     public List<Pedido> buscarTodos() {
         return peRepo.findAll();
     }
-
     @Override
     public Pedido buscarUno(int idPedido) {
         return peRepo.findById(idPedido).orElse(null);
     }
-
     @Override
     public List<Pedido> buscarPorCliente(int idCliente) {
         return peRepo.buscarPorCliente(idCliente);
     }
-
     @Override
     public List<Pedido> buscarPorComercial(int idComercial) {
         return peRepo.buscarPorComercial(idComercial);
+    }
+    @Override
+    public Pedido darAlta(Pedido pedido) {
+            peRepo.save(pedido);
+            return pedido;
+    }
+    @Override
+    public boolean eliminarPedido(int idPedido) {
+        Pedido p = peRepo.findById(idPedido).orElse(null);
+        if(p != null) {
+            peRepo.deleteById(p.getIdPedido());
+            return true;
+        }
+        return false;
     }
 }

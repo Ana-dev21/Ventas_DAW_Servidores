@@ -10,4 +10,8 @@ public interface PedidoService {
     Pedido buscarUno(int idPedido);
     List<Pedido> buscarPorCliente(int idCliente);
     List<Pedido> buscarPorComercial(int idComercial);
+    Pedido darAlta(Pedido pedido);
+    boolean eliminarPedido(int idPedido);
+
+
 }
