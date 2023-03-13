@@ -1,5 +1,7 @@
 package com.edix.ventas.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
@@ -29,7 +31,8 @@ public class Comercial implements Serializable {
 	private String nombre;
 
 	//bi-directional many-to-one association to Pedido
-	@OneToMany(mappedBy="comerciale")
+	@JsonIgnore
+	@OneToMany(mappedBy="comercial")
 	private List<Pedido> pedidos;
 
 	public Comercial() {
@@ -85,14 +88,14 @@ public class Comercial implements Serializable {
 
 	public Pedido addPedido(Pedido pedido) {
 		getPedidos().add(pedido);
-		pedido.setComerciale(this);
+		pedido.setComercial(this);
 
 		return pedido;
 	}
 
 	public Pedido removePedido(Pedido pedido) {
 		getPedidos().remove(pedido);
-		pedido.setComerciale(null);
+		pedido.setComercial(null);
 
 		return pedido;
 	}

@@ -1,18 +1,18 @@
 package com.edix.ventas.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.io.Serial;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
 
-/**
- * The persistent class for the pedidos database table.
- * 
- */
 @Entity
 @Table(name="pedidos")
 @NamedQuery(name="Pedido.findAll", query="SELECT p FROM Pedido p")
 public class Pedido implements Serializable {
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -27,13 +27,14 @@ public class Pedido implements Serializable {
 
 	//bi-directional many-to-one association to Cliente
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 
 	//bi-directional many-to-one association to Comercial
 	@ManyToOne
 	@JoinColumn(name="id_comercial")
-	private Comercial comerciale;
+	private Comercial comercial;
 
 	public Pedido() {
 	}
@@ -70,12 +71,12 @@ public class Pedido implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public Comercial getComerciale() {
-		return this.comerciale;
+	public Comercial getComercial() {
+		return this.comercial;
 	}
 
-	public void setComerciale(Comercial comerciale) {
-		this.comerciale = comerciale;
+	public void setComercial(Comercial comercial) {
+		this.comercial = comercial;
 	}
 
 }
